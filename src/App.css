@@ -1,38 +1,189 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+
+.form-container {
+  width: 90%;
+  max-width: 1000px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 80px auto; /* Ensure the form starts below the header and is centered horizontally */
+  height: 80%; /* Make the form container span 80% of the screen height */
+  overflow-y: auto; /* Allow scrolling for long content */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-group {
+  margin-bottom: 15px;
+  padding: 0 110px; /* Add 100px more space on both sides */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 110px; /* Add 100px more space on both sides for the button */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .form-container {
+      padding: 15px;
+      margin: 70px auto; /* Adjust margin for smaller screens */
+      height: 85%; /* Adjust height for smaller screens */
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .form-group {
+      padding: 0 15px; /* Reduce padding on smaller screens */
+  }
+
+  .submit-button {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      margin: 0 15px; /* Reduce margin on smaller screens */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.add-column-container {
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
+  margin:20px 0px;
+  cursor: pointer;
+  padding-left: 110px;
+}
+
+.add-column-button {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 50%;
+  background-color: #3b82f6;
   color: white;
+  font-size: 24px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.add-column-button:hover {
+  background-color: #2563eb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.add-column-text {
+  color: #3b82f6;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+
+.columnForm{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgb(212, 228, 241);
+}
+
+.coloumsContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.columnLable{
+  display: flex;
+  align-items: center;
+}
+
+.column-input-form{
+  margin: 1rem;
+  background-color: #7b8491;
+  border-radius: 10px;
+}
+
+.coloumsName{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 10px;
+  padding: 10px;
+  /* border-bottom: 1px solid black; */
+}
+
+.coloumsName input, .coloumsName textarea{
+  width: 30%;
+}
+
+.expanded-fields{
+  width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.fields{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 85%;
+  gap: 10px;
+  padding: 10px;
+}
+
+.fields input, .fields textarea{
+  width: 80%;
 }
