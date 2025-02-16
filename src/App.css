@@ -1,189 +1,404 @@
+/* Global & Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Hide default scrollbar buttons for WebKit browsers */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(200, 200, 200, 0.3); /* semi-transparent track */
+  border-radius: 40px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.6); /* gray thumb */
+  border-radius: 40px;
+  border: 2px solid rgba(200, 200, 200, 0.3); /* creates a subtle glass-like border */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.8);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.6) rgba(200, 200, 200, 0.3);
+}
+
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
   margin: 0;
-  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  /* Soft grey background gradient */
+  background: linear-gradient(135deg, #a49c9c, #eaeaea);
+  color: #333;
+  /* overflow: hidden; */
 }
 
+/* Header with Glassmorphism */
+.header {
+  /* position: fixed; */
+  /* top: 0;
+  left: 0; */
+  width: 100%;
+  padding: 20px 40px;
+  background: rgba(59, 48, 48, 0.75); /* Dark header */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(58, 57, 57, 0.1);
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+}
 
+/* Form Container with Glassmorphism */
 .form-container {
-  width: 90%;
-  max-width: 1000px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 80px auto; /* Ensure the form starts below the header and is centered horizontally */
-  height: 80%; /* Make the form container span 80% of the screen height */
-  overflow-y: auto; /* Allow scrolling for long content */
+  max-width: 900px;
+  margin: 80px auto 40px; /* space for header */
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.75); /* Lighter container */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.form {
+/* Form Heading */
+.form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Section */
+.form-section {
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.form-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
 
-h1 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  padding: 0 110px; /* Add 100px more space on both sides */
-}
-
 .form-group label {
-  display: block;
   margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group label .required {
+  color: red;
+  margin-left: 3px;
 }
 
 .form-group input,
-.form-group textarea {
-  width: 100%;
+.form-group textarea,
+.form-group select {
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
   transition: border-color 0.3s;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
-  border-color: #007bff;
+.form-group textarea:focus,
+.form-group select:focus {
   outline: none;
+  border-color: #888;
 }
 
-textarea {
-  resize: none;
-  height: 80px;
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
 }
 
+/* Inline Error Message */
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* Buttons */
 .submit-button {
-  background-color: #007bff;
+  background: #333;
   color: #fff;
-  padding: 10px 10px;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 0 110px; /* Add 100px more space on both sides for the button */
+  transition: background 0.3s;
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive Styles */
-@media (max-width: 600px) {
-  .form-container {
-      padding: 15px;
-      margin: 70px auto; /* Adjust margin for smaller screens */
-      height: 85%; /* Adjust height for smaller screens */
-  }
-
-  h1 {
-      font-size: 1.5rem;
-  }
-
-  .form-group {
-      padding: 0 15px; /* Reduce padding on smaller screens */
-  }
-
-  .submit-button {
-      padding: 8px 12px;
-      font-size: 0.9rem;
-      margin: 0 15px; /* Reduce margin on smaller screens */
-  }
-}
-
-.add-column-container {
-  display: flex;
-  flex-direction:row;
-  margin:20px 0px;
-  cursor: pointer;
-  padding-left: 110px;
+  background: #222;
 }
 
 .add-column-button {
+  background: #333;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background-color: #3b82f6;
-  color: white;
-  font-size: 24px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
 .add-column-button:hover {
-  background-color: #2563eb;
+  background: #222;
 }
 
-.add-column-text {
-  color: #3b82f6;
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-
-.columnForm{
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: rgb(212, 228, 241);
-}
-
-.coloumsContainer{
+/* Section Header for Columns */
+.section-header {
   display: flex;
   justify-content: space-between;
-}
-
-.columnLable{
-  display: flex;
   align-items: center;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  color: #333;
 }
 
-.column-input-form{
-  margin: 1rem;
-  background-color: #7b8491;
-  border-radius: 10px;
+/* Column Card with Glassmorphism */
+.column-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.2s;
+  color: #333;
 }
 
-.coloumsName{
+.column-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+/* Column Header */
+.column-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  margin: 10px;
-  padding: 10px;
-  /* border-bottom: 1px solid black; */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-.coloumsName input, .coloumsName textarea{
-  width: 30%;
+.column-title {
+  flex: 1;
 }
 
-.expanded-fields{
+.column-title label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.column-title input {
   width: 100%;
-    display: flex;
-    justify-content: center;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.9);
+  color: #333;
 }
 
-.fields{
+/* Dropdown Styling */
+select {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #ccc;
+  color: #333;
+}
+option {
+  background: #fff;
+  color: #333;
+}
+
+/* Column Actions (Toggle & Delete) */
+.column-actions {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  width: 85%;
-  gap: 10px;
-  padding: 10px;
+  gap: 8px;
 }
 
-.fields input, .fields textarea{
+.toggle-button,
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.toggle-button:hover {
+  color: #000;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+/* Column Body */
+.column-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Field Group within Column */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.field-group label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  padding: 8px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+}
+
+.field-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Checkboxes */
+.checkboxes {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.checkbox-group input {
+  accent-color: #333;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  padding: 20px;
   width: 80%;
+  max-width: 500px;
+  text-align: center;
+  color: #333;
+}
+
+.modal button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .form-container {
+    margin: 140px 10px 40px;
+    padding: 20px;
+  }
+  .form-section {
+    padding: 0 10px;
+  }
+  .column-body {
+    grid-template-columns: 1fr;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .add-column-button {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
 }

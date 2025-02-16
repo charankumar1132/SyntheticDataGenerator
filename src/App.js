@@ -1,11 +1,14 @@
 import Header from "./components/Header";
 import TableInputPage from "./components/TableInputPage";
+
 const App = () => {
   return (
-      <div>
-        <Header/>
-        <TableInputPage />
-      </div>
+    <div>
+      <Header />
+      {/* <div style={{ overflowX: "hidden",overflowY: "scroll", height:"100vh" }}> */}
+      <TableInputPage />
+      
+    </div>
   );
 };
 
